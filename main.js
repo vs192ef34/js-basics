@@ -1,9 +1,9 @@
 const { getHelpText, validateTriangle } = require("./src/validation");
-const isTriangle = require("./src/geometry");
-const getAnswerPhrase = require("./src/output");
+const { isTriangle } = require("./src/geometry");
+const { getAnswerPhrase } = require("./src/output");
 
 const sides = [
-  { sideName: "a", sideLength: -8 },
+  { sideName: "a", sideLength: 300 },
   { sideName: "b", sideLength: 400 },
   { sideName: "c", sideLength: 500 },
 ];

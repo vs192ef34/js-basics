@@ -1,4 +1,4 @@
-const isBetween = require("./util").isBetween;
+const { isBetween } = require("./util");
 
 const isValid = (value, lowerBound, upperBound) =>
   isBetween(value, lowerBound + 1, upperBound);
