@@ -1,10 +1,11 @@
 const { range } = require("./src/util");
-const { isTriangle } = require("./src/geometry");
+const { isRightTriangle, getUniqueTriangles } = require("./src/geometry");
 const { getPositiveAnswerPhrase } = require("./src/output");
 
-const limit = 10;
+const lowerBound = 1;
+const upperBound = 30;
 
-const numbers = range(1, limit);
+const numbers = range(lowerBound, upperBound);
 
 const numberTriades = numbers
   .map((a) => numbers.map((b) => numbers.map((c) => [a, b, c])))
@@ -19,6 +20,8 @@ const objectTriades = numberTriades.map((triade) =>
   }))
 );
 
-const triangles = objectTriades.filter((triade) => isTriangle(triade));
+const triangles = objectTriades.filter((triade) => isRightTriangle(triade));
 
-triangles.forEach((triangle) => console.log(getPositiveAnswerPhrase(triangle)));
+const unique = getUniqueTriangles(triangles);
+
+unique.forEach((triangle) => console.log(getPositiveAnswerPhrase(triangle)));
